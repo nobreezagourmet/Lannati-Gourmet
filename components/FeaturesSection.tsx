@@ -13,9 +13,7 @@ const FeaturesSection: React.FC = () => {
     const ctx = gsap.context(() => {
       let mm = gsap.matchMedia();
 
-      // ANIMAÇÃO EXCLUSIVA MOBILE: Opacidade e entrada suave
       mm.add("(max-width: 767px)", () => {
-        // Fade do Título
         gsap.fromTo(".features-title", 
           { opacity: 0, y: 20 },
           {
@@ -30,7 +28,6 @@ const FeaturesSection: React.FC = () => {
           }
         );
 
-        // Fade dos Itens de Diferencial
         gsap.utils.toArray<HTMLElement>(".feature-item").forEach((item) => {
           gsap.fromTo(item, 
             { opacity: 0, y: 40 },
@@ -48,7 +45,6 @@ const FeaturesSection: React.FC = () => {
         });
       });
 
-      // Efeito de movimento da gota esquerda
       gsap.fromTo(leftGotaRef.current, 
         { x: 0, scale: 0.95 },
         {
@@ -81,7 +77,6 @@ const FeaturesSection: React.FC = () => {
         }
       );
 
-      // EFEITO DE PULSO HARMONIZADO: Central Img
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -129,7 +124,6 @@ const FeaturesSection: React.FC = () => {
   return (
     <section ref={sectionRef} id="features" className="relative pt-32 md:pt-40 pb-20 md:pb-28 bg-bordeaux z-10 scroll-mt-20 overflow-visible">
       
-      {/* IMAGENS DECORATIVAS */}
       <img 
         ref={rightGotaRef}
         src="https://i.postimg.cc/cHGfgptk/GOTAS-02.png"
@@ -190,7 +184,6 @@ const FeaturesSection: React.FC = () => {
         </div>
       </div>
 
-      {/* ONDA DE TRANSIÇÃO (BOTTOM) */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-50 translate-y-[99%]">
         <svg 
           viewBox="0 0 1200 120" 

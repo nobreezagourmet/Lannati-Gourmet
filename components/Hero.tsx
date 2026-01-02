@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
 
   return (
     <section ref={containerRef} className="relative h-[85vh] md:h-screen min-h-[650px] w-full overflow-hidden flex items-center bg-bordeaux">
-      {/* Background Layer - Brilho realçado para mostrar o brigadeiro */}
+      {/* Background Layer */}
       <div 
         ref={bgImageRef}
         className="absolute top-0 left-0 w-full h-[115%] bg-cover bg-center z-0"
@@ -52,7 +52,6 @@ const Hero: React.FC = () => {
       <div className="relative z-20 container mx-auto px-6 md:px-12 pt-20 md:pt-32">
         <div ref={textRef} className="opacity-0 max-w-5xl w-full flex flex-col items-center md:items-start text-center md:text-left">
           
-          {/* Logo: Oculta no Desktop, Subida de 8mm e mais espaço abaixo no Mobile */}
           <div className="w-full flex justify-center md:hidden mb-24 -mt-20 transform transition-all duration-300">
             <img 
               src="https://i.postimg.cc/hjwW10gL/logo-novo-agora.png" 
