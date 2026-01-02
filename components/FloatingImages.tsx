@@ -62,7 +62,7 @@ const FloatingImages: React.FC = () => {
       {/* Imagem Direita: Cores reais, sem filtro */}
       <img 
         ref={img1Ref}
-        src="https://images.unsplash.com/photo-1579631542720-3a87824fff86?q=80&w=400&auto=format&fit=crop" 
+        src="https://i.postimg.cc/cHGfgptk/GOTAS-02.png" 
         alt="Trigo"
         className="absolute right-0 top-[15%] w-64 h-80 object-cover opacity-100 rounded-l-3xl shadow-2xl translate-x-1/3"
       />
@@ -70,7 +70,7 @@ const FloatingImages: React.FC = () => {
       {/* Imagem Esquerda: Cores reais, sem filtro */}
       <img 
         ref={img2Ref}
-        src="https://i.postimg.cc/65nHdSJ5/Gemini-Generated-Image-3y9pni3y9pni3y9p.png" 
+        src="https://i.postimg.cc/wx0sgy22/GOTAS-01.png" 
         alt="Detalhe"
         className="absolute left-0 top-[50%] w-56 h-72 object-cover opacity-100 rounded-r-3xl shadow-2xl -translate-x-1/3"
       />

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { ShoppingBag, Menu } from 'lucide-react';
 
@@ -32,14 +31,13 @@ const Header: React.FC = () => {
            <Menu size={28} strokeWidth={2} />
         </button>
 
-        {/* LOGO SVG NO HEADER */}
+        {/* LOGO PNG NO HEADER */}
         <div className="text-center group cursor-pointer flex flex-col items-center">
-          <svg width="140" height="45" viewBox="0 0 220 80" fill="none" xmlns="http://www.w3.org/2000/svg" className={`transition-colors duration-500 ${isScrolled ? 'text-bordeaux' : 'text-gold'}`}>
-              <circle cx="30" cy="40" r="28" stroke="currentColor" strokeWidth="1" strokeDasharray="4 2" />
-              <path d="M22 28V52H38" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-              <text x="70" y="42" fill="currentColor" className="font-brand font-medium tracking-[0.15em] uppercase text-[22px]">Lannati</text>
-              <text x="70" y="58" fill="currentColor" fillOpacity="0.6" className="font-brand text-[12px] tracking-[0.4em] uppercase">Gourmet</text>
-          </svg>
+          <img 
+            src="https://i.postimg.cc/hjwW10gL/logo-novo-agora.png" 
+            alt="Lannati Gourmet Logo" 
+            className={`h-12 md:h-16 w-auto transition-all duration-500 ${isScrolled ? 'brightness-50' : 'brightness-100'}`}
+          />
         </div>
 
         {/* Cart Icon */}

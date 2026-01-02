@@ -1,5 +1,4 @@
-
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Hero from './components/Hero';
 import ProductSection from './components/ProductSection';
 import HistorySection from './components/HistorySection';
@@ -7,8 +6,8 @@ import TestimonialsSection from './components/TestimonialsSection';
 import FeaturesSection from './components/FeaturesSection';
 import ContactCTA from './components/ContactCTA'; 
 import Footer from './components/Footer';
-import FloatingImages from './components/FloatingImages';
 import CookieConsent from './components/CookieConsent';
+import { X } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -17,6 +16,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
   const mainRef = useRef<HTMLDivElement>(null);
+  const [showChat, setShowChat] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [tooltipDismissed, setTooltipDismissed] = useState(false);
 
   useEffect(() => {
     if (!mainRef.current) return;
@@ -29,45 +31,98 @@ const App: React.FC = () => {
       });
     }, mainRef.current);
 
-    return () => ctx.revert();
+    const checkCookies = () => {
+      const consent = localStorage.getItem('lannati_cookies_preference');
+      if (consent === 'accepted') {
+        setShowChat(true);
+      }
+    };
+
+    checkCookies();
+    const interval = setInterval(checkCookies, 500);
+
+    return () => {
+      ctx.revert();
+      clearInterval(interval);
+    };
   }, []);
+
+  useEffect(() => {
+    if (showChat && !tooltipDismissed) {
+      const timer = setTimeout(() => {
+        setShowTooltip(true);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showChat, tooltipDismissed]);
+
+  const closeTooltip = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setShowTooltip(false);
+    setTooltipDismissed(true);
+  };
 
   return (
     <div ref={mainRef} className="opacity-0 bg-cream min-h-screen text-charcoal font-sans selection:bg-bordeaux selection:text-gold">
       
-      {/* Cabeçalho removido conforme solicitado para um visual 'clean' */}
-
       <main className="relative">
         <Hero />
-        
         <FeaturesSection />
-        
         <ProductSection />
-
         <HistorySection />
-
         <TestimonialsSection />
-
         <ContactCTA />
-        
-        <FloatingImages />
       </main>
 
       <Footer />
-
       <CookieConsent />
 
-      <a 
-        href="https://wa.me/message/4UTFA7QUPX6PE1" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 flex items-center justify-center animate-bounce-slow hover:animate-none"
-        aria-label="Fale conosco no WhatsApp"
-      >
-        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-      </a>
+      {/* ÍCONE DE ATENDIMENTO COM REFINAMENTOS SOLICITADOS */}
+      {showChat && (
+        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+          {/* Balão de Fala (Tooltip) */}
+          <div 
+            className={`relative bg-cream border-2 border-bordeaux/25 px-6 py-4 rounded-[1.5rem] shadow-2xl transition-all duration-700 transform ${
+              showTooltip && !tooltipDismissed ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-10 scale-90 pointer-events-none'
+            }`}
+          >
+            {/* X movido para o outro lado (esquerda) */}
+            <button 
+              onClick={closeTooltip}
+              className="absolute -top-2 -left-2 bg-bordeaux text-gold rounded-full p-1 hover:scale-110 transition-transform shadow-lg border border-gold/20 z-10"
+              aria-label="Fechar mensagem"
+            >
+              <X size={12} strokeWidth={3} />
+            </button>
+
+            {/* Escrita em peso normal conforme solicitado */}
+            <p className="font-title text-bordeaux text-xs md:text-sm font-normal whitespace-nowrap pl-2 pr-2">
+              Olá, como podemos te ajudar?
+            </p>
+            {/* Triângulo do balão */}
+            <div className="absolute right-[-8px] top-1/2 -translate-y-1/2 w-4 h-4 bg-cream border-r-2 border-t-2 border-bordeaux/25 rotate-45"></div>
+          </div>
+
+          <a 
+            href="https://wa.me/message/4UTFA7QUPX6PE1" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="relative bg-gold text-bordeaux p-4 rounded-[1.5rem] shadow-[0_15px_40px_rgba(107,66,38,0.35)] hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center border-2 border-bordeaux/30 group"
+            aria-label="Fale conosco no WhatsApp"
+          >
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 13.4876 3.36055 14.891 4 16.1247L3 21L7.87531 20C9.10899 20.6395 10.5124 21 12 21Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <circle cx="8" cy="12" r="1.2" fill="currentColor"/>
+              <circle cx="12" cy="12" r="1.2" fill="currentColor"/>
+              <circle cx="16" cy="12" r="1.2" fill="currentColor"/>
+            </svg>
+            
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-gold animate-pulse"></span>
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-gold opacity-30 scale-150 animate-ping"></span>
+          </a>
+        </div>
+      )}
     </div>
   );
 };
