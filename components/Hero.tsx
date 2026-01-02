@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
           </p>
           
           <button 
-            onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('products-section')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-luxury px-10 py-5 md:px-14 md:py-6 bg-gold text-bordeaux hover:scale-105 transition-all duration-500 shadow-sm border-none mx-auto md:mx-0"
           >
             CONHECER O CARDÁPIO COMPLETO

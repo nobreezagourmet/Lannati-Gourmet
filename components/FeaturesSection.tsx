@@ -11,7 +11,44 @@ const FeaturesSection: React.FC = () => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Efeito de movimento da gota esquerda (Suavizado para 6.3cm de distância total)
+      let mm = gsap.matchMedia();
+
+      // ANIMAÇÃO EXCLUSIVA MOBILE: Opacidade e entrada suave
+      mm.add("(max-width: 767px)", () => {
+        // Fade do Título
+        gsap.fromTo(".features-title", 
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            scrollTrigger: {
+              trigger: ".features-title",
+              start: "top 90%",
+              end: "top 70%",
+              scrub: 1
+            }
+          }
+        );
+
+        // Fade dos Itens de Diferencial
+        gsap.utils.toArray<HTMLElement>(".feature-item").forEach((item) => {
+          gsap.fromTo(item, 
+            { opacity: 0, y: 40 },
+            {
+              opacity: 1,
+              y: 0,
+              scrollTrigger: {
+                trigger: item,
+                start: "top 95%",
+                end: "top 75%",
+                scrub: 1.2
+              }
+            }
+          );
+        });
+      });
+
+      // Efeito de movimento da gota esquerda
       gsap.fromTo(leftGotaRef.current, 
         { x: 0, scale: 0.95 },
         {
@@ -44,13 +81,13 @@ const FeaturesSection: React.FC = () => {
         }
       );
 
-      // EFEITO DE PULSO HARMONIZADO: Zoom mais suave e orgânico
+      // EFEITO DE PULSO HARMONIZADO: Central Img
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top bottom",
           end: "bottom top",
-          scrub: 2.2 // Aumentado para fluidez amanteigada
+          scrub: 2.2
         }
       });
 
@@ -90,9 +127,9 @@ const FeaturesSection: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="features" className="relative pt-2 md:pt-40 pb-20 md:pb-28 bg-bordeaux z-10 scroll-mt-20 overflow-visible">
+    <section ref={sectionRef} id="features" className="relative pt-32 md:pt-40 pb-20 md:pb-28 bg-bordeaux z-10 scroll-mt-20 overflow-visible">
       
-      {/* IMAGENS COM Z-INDEX SUPERIOR À ONDA (z-[60]) */}
+      {/* IMAGENS DECORATIVAS */}
       <img 
         ref={rightGotaRef}
         src="https://i.postimg.cc/cHGfgptk/GOTAS-02.png"
@@ -108,7 +145,7 @@ const FeaturesSection: React.FC = () => {
       />
 
       <div className="container mx-auto px-6 relative z-30">
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-4 md:mb-20 features-title">
           <h2 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-tight flex justify-center items-baseline flex-wrap gap-x-4">
             <span className="font-title font-bold text-gold/90">Nossos</span>
             <span className="font-serif font-light italic text-gold">diferenciais</span>
@@ -116,14 +153,14 @@ const FeaturesSection: React.FC = () => {
           <div className="w-16 h-px bg-gold/30 mx-auto mt-8"></div>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-16 max-w-7xl mx-auto">
           
           <div className="w-full lg:w-1/3 flex flex-col gap-12 md:gap-16 text-center lg:text-right order-2 lg:order-1 relative z-30">
-            <div className="group">
+            <div className="group feature-item">
               <h3 className="font-title-standard text-3xl md:text-4xl text-gold mb-4 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Receita original</h3>
               <p className="font-body-standard text-cream/50 text-xl md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-right [hyphens:auto]">Preservamos o sabor autêntico das receitas tradicionais passadas por gerações em nossa família.</p>
             </div>
-            <div className="group">
+            <div className="group feature-item">
               <h3 className="font-title-standard text-3xl md:text-4xl text-gold mb-4 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Produção artesanal</h3>
               <p className="font-body-standard text-cream/50 text-xl md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-right [hyphens:auto]">Cada detalhe é moldado à mão com paciência e perfeccionismo para garantir a perfeição absoluta.</p>
             </div>
@@ -141,11 +178,11 @@ const FeaturesSection: React.FC = () => {
           </div>
 
           <div className="w-full lg:w-1/3 flex flex-col gap-12 md:gap-16 text-center lg:text-left order-3 relative z-30">
-            <div className="group">
+            <div className="group feature-item">
               <h3 className="font-title-standard text-3xl md:text-4xl text-gold mb-4 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Ingredientes</h3>
               <p className="font-body-standard text-cream/50 text-xl md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-left [hyphens:auto]">Selecionamos apenas as melhores matérias-primas globais para elevar o padrão de cada criação.</p>
             </div>
-            <div className="group">
+            <div className="group feature-item">
               <h3 className="font-title-standard text-3xl md:text-4xl text-gold mb-4 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Atendimento exclusivo</h3>
               <p className="font-body-standard text-cream/50 text-xl md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-left [hyphens:auto]">Sua experiência é tratada com o cuidado e a exclusividade que você merece em cada detalhe.</p>
             </div>
