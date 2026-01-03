@@ -5,15 +5,16 @@ const Footer: React.FC = () => {
   return (
     <footer className="relative bg-bordeaux pt-32 pb-12 z-20">
       
-      {/* ONDA DO RODAPÉ: GEOMETRIA CORRIGIDA 100% WIDTH */}
+      {/* ONDA DO RODAPÉ: Ajuste de sobreposição de 1px */}
       <div 
-        className="absolute top-[1px] left-0 w-full overflow-hidden leading-none z-50 -translate-y-[99%] pointer-events-none"
+        className="absolute top-0 left-0 w-full overflow-hidden leading-none z-50 -translate-y-[calc(100%-1px)] pointer-events-none"
       >
         <svg 
           viewBox="0 0 1200 120" 
           preserveAspectRatio="none" 
-          className="relative block w-[101%] h-[100px] md:h-[180px] text-bordeaux fill-current"
+          className="relative block w-[101%] h-[80px] md:h-[180px] text-bordeaux fill-current"
           style={{ left: '-0.5%' }}
+          shapeRendering="geometricPrecision"
         >
           <path 
             d="M0,0V60.53C0,60.53,156.45,130.45,340,90.53C523.55,50.61,640,0,820,30.53C1000,61.06,1200,120.53,1200,120.53V0H0Z" 

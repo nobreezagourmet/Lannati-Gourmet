@@ -52,24 +52,24 @@ const Hero: React.FC = () => {
       <div className="relative z-20 container mx-auto px-6 md:px-12 pt-20 md:pt-32">
         <div ref={textRef} className="opacity-0 max-w-5xl w-full flex flex-col items-center md:items-start text-center md:text-left">
           
-          <div className="w-full flex justify-center md:hidden mb-24 -mt-20 transform transition-all duration-300">
+          <div className="w-full flex justify-center md:hidden mb-16 md:mb-24 -mt-10 transform transition-all duration-300">
             <img 
               src="https://i.postimg.cc/hjwW10gL/logo-novo-agora.png" 
               alt="Lannati Gourmet Logo" 
-              className="w-32 h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+              className="w-24 h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
             />
           </div>
 
           <h1 className="flex flex-col mb-8 md:mb-10 leading-[1.05] w-full items-center md:items-start">
-            <span className="font-title font-bold text-cream text-5xl sm:text-6xl md:text-8xl lg:text-9xl tracking-tight uppercase">
+            <span className="font-title font-bold text-cream text-4xl sm:text-6xl md:text-8xl lg:text-9xl tracking-tight uppercase">
               O <span className="lowercase">doce sabor</span>
             </span>
-            <span className="text-gold italic font-serif font-light text-3xl sm:text-5xl md:text-7xl lg:text-8xl mt-1 md:mt-3 lowercase">
+            <span className="text-gold italic font-serif font-light text-2xl sm:text-5xl md:text-7xl lg:text-8xl mt-1 md:mt-3 lowercase">
               da sua felicidade
             </span>
           </h1>
 
-          <p className="font-body-standard text-base md:text-xl lg:text-2xl text-cream/70 max-w-2xl mb-10 md:mb-16 leading-relaxed font-light">
+          <p className="font-body-standard text-sm md:text-xl lg:text-2xl text-cream/70 max-w-2xl mb-10 md:mb-16 leading-relaxed font-light">
             Confeitaria artesanal feita com ingredientes selecionados para criar momentos inesquecíveis em cada detalhe.
           </p>
           
