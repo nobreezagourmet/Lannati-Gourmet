@@ -27,7 +27,7 @@ const TestimonialsSection: React.FC = () => {
 
     const initMarquee = () => {
       const items = gsap.utils.toArray(".testimonial-card") as HTMLElement[];
-      if (!items.length) return;
+      if (!items.length || !containerRef.current || !trackRef.current) return;
 
       const ctx = gsap.context(() => {
         loopInstance.current = horizontalLoop(items, {
@@ -37,32 +37,36 @@ const TestimonialsSection: React.FC = () => {
           paused: false 
         });
 
-        let dragProxy = document.createElement("div");
-        Draggable.create(dragProxy, {
-          type: "x",
-          trigger: trackRef.current,
-          onPress() {
-            if (loopInstance.current) {
-              this.startOffset = loopInstance.current.totalTime();
-              loopInstance.current.pause();
+        const dragProxy = document.createElement("div");
+        if (trackRef.current) {
+          Draggable.create(dragProxy, {
+            type: "x",
+            trigger: trackRef.current,
+            onPress() {
+              if (loopInstance.current) {
+                // @ts-ignore - Propriedade customizada para controle de offset
+                this.startOffset = loopInstance.current.totalTime();
+                loopInstance.current.pause();
+              }
+            },
+            onDrag() {
+              if (loopInstance.current) {
+                // @ts-ignore
+                loopInstance.current.totalTime(this.startOffset + (this.startX - this.x) * 0.004);
+              }
+            },
+            onRelease() {
+              if (loopInstance.current) {
+                loopInstance.current.play();
+                gsap.to(loopInstance.current, { 
+                  timeScale: 1, 
+                  duration: 4, 
+                  ease: "expo.out" 
+                });
+              }
             }
-          },
-          onDrag() {
-            if (loopInstance.current) {
-              loopInstance.current.totalTime(this.startOffset + (this.startX - this.x) * 0.004);
-            }
-          },
-          onRelease() {
-            if (loopInstance.current) {
-              loopInstance.current.play();
-              gsap.to(loopInstance.current, { 
-                timeScale: 1, 
-                duration: 4, 
-                ease: "expo.out" 
-              });
-            }
-          }
-        });
+          });
+        }
 
         ScrollTrigger.create({
           trigger: containerRef.current,
@@ -76,53 +80,62 @@ const TestimonialsSection: React.FC = () => {
           }
         });
       }, containerRef.current);
+
+      return () => ctx.revert();
     };
 
     const timer = setTimeout(initMarquee, 100);
     return () => clearTimeout(timer);
   }, []);
 
-  function horizontalLoop(items: any[], config: any) {
+  function horizontalLoop(items: HTMLElement[], config: any) {
     items = gsap.utils.toArray(items);
     config = config || {};
-    let tl = gsap.timeline({
+    const tl = gsap.timeline({
         repeat: config.repeat,
         paused: config.paused,
         defaults: { ease: "none" },
-        onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100)
-      }),
-      length = items.length,
-      startX = items[0].offsetLeft,
-      times: any[] = [],
-      widths: any[] = [],
-      xPercents: any[] = [],
-      pixelsPerSecond = (config.speed || 1) * 100,
-      snap = config.snap === false ? (v: any) => v : gsap.utils.snap(config.snap || 1),
-      totalWidth, curX, distanceToStart, distanceToLoop, item, i;
-
+        onReverseComplete: () => {
+          tl.totalTime(tl.rawTime() + tl.duration() * 100);
+        }
+      });
+    
+    const length = items.length;
+    const startX = items[0].offsetLeft;
+    const times: number[] = [];
+    const widths: number[] = [];
+    const xPercents: number[] = [];
+    const pixelsPerSecond = (config.speed || 1) * 100;
+    const snap = config.snap === false ? (v: any) => v : gsap.utils.snap(config.snap || 1);
+    
     gsap.set(items, {
       xPercent: (i, target) => {
-        let w = widths[i] = parseFloat(gsap.getProperty(target, "width", "px") as string);
+        const w = widths[i] = parseFloat(gsap.getProperty(target, "width", "px") as string);
         xPercents[i] = snap(parseFloat(gsap.getProperty(target, "xPercent") as string) || 0);
         return xPercents[i];
       }
     });
     gsap.set(items, { x: 0 });
+    
     const gap = parseFloat(config.paddingRight) || 0;
-    totalWidth = items[length - 1].offsetLeft + xPercents[length - 1] / 100 * widths[length - 1] - startX + items[length - 1].offsetWidth + gap;
-    for (i = 0; i < length; i++) {
-      item = items[i];
-      curX = xPercents[i] / 100 * widths[i];
-      distanceToStart = item.offsetLeft - startX;
-      distanceToLoop = distanceToStart + widths[i] + gap;
+    const totalWidth = items[length - 1].offsetLeft + xPercents[length - 1] / 100 * widths[length - 1] - startX + items[length - 1].offsetWidth + gap;
+    
+    for (let i = 0; i < length; i++) {
+      const item = items[i];
+      const curX = xPercents[i] / 100 * widths[i];
+      const distanceToStart = item.offsetLeft - startX;
+      const distanceToLoop = distanceToStart + widths[i] + gap;
       tl.to(item, { xPercent: snap((curX - distanceToLoop) / widths[i] * 100), duration: distanceToLoop / pixelsPerSecond }, 0)
         .fromTo(item, { xPercent: snap((curX - distanceToLoop + totalWidth) / widths[i] * 100) }, { xPercent: xPercents[i], duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond, immediateRender: false }, distanceToLoop / pixelsPerSecond)
         .add("label" + i, distanceToStart / pixelsPerSecond);
       times[i] = distanceToStart / pixelsPerSecond;
     }
+    
     tl.progress(1, true).progress(0, true);
     if (config.reversed) {
-      tl.vars.onReverseComplete();
+      if (tl.vars.onReverseComplete) {
+        tl.vars.onReverseComplete();
+      }
       tl.reverse();
     }
     return tl;
@@ -149,7 +162,6 @@ const TestimonialsSection: React.FC = () => {
               key={`${item.id}-${idx}`}
               className="testimonial-card w-[210px] md:w-[320px] flex-shrink-0 mr-4 md:mr-8"
             >
-              {/* Card refinado: Sombras absolutamente removidas para estética limpa */}
               <div className="bg-bordeaux p-5 md:p-8 rounded-[1.8rem] md:rounded-[2rem] border border-white/10 h-full flex flex-col items-start transition-all hover:bg-bordeaux/95 shadow-none ring-0">
                 <div className="w-full flex gap-1 text-gold/80 mb-5">
                   {[...Array(5)].map((_, i) => (
