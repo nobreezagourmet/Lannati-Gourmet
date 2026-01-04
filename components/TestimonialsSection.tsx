@@ -11,10 +11,10 @@ const testimonials = [
   { id: 2, text: "Além dos doces deliciosos, o atendimento é impecável! Recomendo de olhos fechados!", author: "Carlos Machado", rating: 4 },
   { id: 3, text: "Todos os doces são simplesmente incríveis! A qualidade e o sabor são incomparáveis. Super recomendo.", author: "Mariana Lima", rating: 5 },
   { id: 4, text: "A apresentação das caixas de presente é divina. Foi o destaque do aniversário da minha mãe.", author: "Fernanda Costa", rating: 5 },
-  { id: 5, text: "O de pistache é de outro mundo! Nunca comi nada igual. Virei cliente fiel.", author: "Roberto Alves", rating: 5 },
-  { id: 6, text: "Simplesmente divinos! O sabor Tradicional Belga me transportou para a infância, mas com um toque sofisticado.", author: "Patrícia Gomes", rating: 5 },
+  { id: 5, text: "O de ninho com nutella é de outro mundo! Nunca comi nada igual. Virei cliente fiel.", author: "Roberto Alves", rating: 3 },
+  { id: 6, text: "Simplesmente divinos! O sabor Tradicional Belga me transportou para a infância, mas com um toque sofisticado.", author: "Patrícia Gomes", rating: 4 },
   { id: 7, text: "Uma experiência gastronômica completa. Desde a embalagem até o último pedaço, tudo perfeito.", author: "Ricardo Mendonça", rating: 5 },
-  { id: 8, text: "A Lannati Gourmet transformou nossa festa em um evento inesquecível. O bolo de nozes é dos deuses.", author: "Juliana Paes", rating: 5 }
+  { id: 8, text: "A Lannati Gourmet transformou nossa festa em um evento inesquecível. O bolo de nozes é dos deuses.", author: "Juliana Paes", rating: 4 }
 ];
 
 const TestimonialsSection: React.FC = () => {
