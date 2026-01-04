@@ -142,14 +142,14 @@ const TestimonialsSection: React.FC = () => {
   }
 
   return (
-    <section ref={containerRef} id="testimonials" className="pt-40 pb-24 md:pt-64 md:pb-64 bg-gold relative overflow-hidden select-none border-b border-bordeaux/5">
+    <section ref={containerRef} id="testimonials" className="pt-32 pb-24 md:pt-64 md:pb-64 bg-gold relative overflow-hidden select-none border-b border-bordeaux/5">
       
-      <div className="container mx-auto px-6 mb-16 md:mb-24 text-center">
-        <h2 className="text-5xl sm:text-6xl lg:text-7xl text-bordeaux tracking-tight leading-tight flex justify-center items-baseline flex-wrap gap-x-4">
+      <div className="container mx-auto px-6 mb-12 md:mb-24 text-center">
+        <h2 className="text-4xl sm:text-6xl lg:text-7xl text-bordeaux tracking-tight leading-tight flex justify-center items-baseline flex-wrap gap-x-4">
           <span className="font-title font-bold">Quem prova,</span>
           <span className="font-serif font-light italic">recomenda</span>
         </h2>
-        <div className="w-16 h-0.5 bg-bordeaux/10 mx-auto mt-8"></div>
+        <div className="w-16 h-0.5 bg-bordeaux/10 mx-auto mt-6 md:mt-8"></div>
       </div>
 
       <div className="relative w-full overflow-hidden cursor-grab active:cursor-grabbing pb-12">
