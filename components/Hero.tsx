@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
         ref={bgImageRef}
         className="absolute top-0 left-0 w-full h-[115%] bg-cover bg-center z-0"
         style={{
-          backgroundImage: 'url("https://i.postimg.cc/fRD2zKtQ/Sem-Titulo-1.png")',
+          backgroundImage: 'url("https://i.postimg.cc/LXgkNzKD/Sem-Titulo-2.png")',
           filter: 'brightness(0.65)' 
         }}
       />
@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
           </h1>
 
           <p className="font-body-standard text-sm md:text-xl lg:text-2xl text-cream/70 max-w-2xl mb-10 md:mb-16 leading-relaxed font-light">
-            Confeitaria artesanal feita com ingredientes selecionados para criar momentos inesquecíveis em cada detalhe.
+            Transformamos o clássico brigadeiro em uma experiência gourmet inesquecível, técnica artesanal aos melhores ingredientes do mundo.
           </p>
           
           <button 
