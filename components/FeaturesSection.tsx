@@ -151,11 +151,11 @@ const FeaturesSection: React.FC = () => {
           
           <div className="w-full lg:w-1/3 flex flex-col gap-10 md:gap-16 text-center lg:text-right order-2 lg:order-1 relative z-30">
             <div className="group feature-item">
-              <h3 className="font-title-standard text-2xl md:text-4xl text-gold mb-3 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Receita original</h3>
+              <h3 className="font-title-standard text-2xl md:text-4xl text-gold mb-3 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Receita</h3>
               <p className="font-body-standard text-cream/50 text-base md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-right [hyphens:auto]">Preservamos o sabor autêntico das receitas tradicionais passadas por gerações em nossa família.</p>
             </div>
             <div className="group feature-item">
-              <h3 className="font-title-standard text-2xl md:text-4xl text-gold mb-3 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Produção artesanal</h3>
+              <h3 className="font-title-standard text-2xl md:text-4xl text-gold mb-3 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Produção</h3>
               <p className="font-body-standard text-cream/50 text-base md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-right [hyphens:auto]">Cada detalhe é moldado à mão com paciência e perfeccionismo para garantir a perfeição absoluta.</p>
             </div>
           </div>
@@ -177,7 +177,7 @@ const FeaturesSection: React.FC = () => {
               <p className="font-body-standard text-cream/50 text-base md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-left [hyphens:auto]">Selecionamos apenas as melhores matérias-primas globais para elevar o padrão de cada criação.</p>
             </div>
             <div className="group feature-item">
-              <h3 className="font-title-standard text-2xl md:text-4xl text-gold mb-3 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Atendimento exclusivo</h3>
+              <h3 className="font-title-standard text-2xl md:text-4xl text-gold mb-3 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Atendimento</h3>
               <p className="font-body-standard text-cream/50 text-base md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-left [hyphens:auto]">Sua experiência é tratada com o cuidado e a exclusividade que você merece em cada detalhe.</p>
             </div>
           </div>
