@@ -26,7 +26,6 @@ const ProductSection: React.FC = () => {
     <section id="products-section" className="pt-[160px] pb-48 md:pt-48 md:pb-72 bg-gold relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
         
-        {/* Título da Seção - Ajustado para ser mais harmônico em dispositivos menores */}
         <div className="text-center mb-16 md:mb-32">
           <h2 className="text-4xl sm:text-6xl lg:text-7xl text-bordeaux tracking-tight leading-[1.15] flex flex-col items-center">
             <span className="flex items-baseline justify-center flex-wrap gap-x-2 md:gap-x-3">
@@ -47,7 +46,6 @@ const ProductSection: React.FC = () => {
               key={p.id} 
               className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-10 md:gap-32`}
             >
-              {/* Container da Imagem */}
               <div className="w-full md:w-[55%]">
                 <div className="aspect-[16/10] overflow-hidden rounded-[2rem] md:rounded-[3rem] bg-white/5 group shadow-xl shadow-bordeaux/5 border-none">
                   <img 
@@ -58,9 +56,8 @@ const ProductSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Bloco de Texto */}
               <div className={`w-full md:w-[45%] flex flex-col text-center ${index % 2 === 0 ? 'md:text-left md:items-start' : 'md:text-right md:items-end'}`}>
-                <h3 className="font-title-standard text-3xl md:text-5xl text-bordeaux mb-4 md:mb-8 tracking-tight">
+                <h3 className="font-title text-3xl md:text-5xl text-bordeaux mb-4 md:mb-8 tracking-tight uppercase font-bold">
                   {p.title}
                 </h3>
                 <p className={`font-body-standard text-charcoal/80 text-base md:text-xl mb-8 md:mb-12 w-full md:max-w-xl font-light leading-relaxed text-justify ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'} [hyphens:auto]`}>
@@ -72,7 +69,7 @@ const ProductSection: React.FC = () => {
                   rel="noopener noreferrer"
                   className="btn-luxury py-5 px-8 md:py-6 md:px-12 bg-bordeaux text-gold hover:scale-105 transition-all duration-500 shadow-xl shadow-bordeaux/10 w-full sm:w-auto"
                 >
-                  QUERO ENCOMENDAR AGORA
+                  ENCOMENDAR AGORA
                 </a>
               </div>
             </div>

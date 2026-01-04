@@ -140,9 +140,9 @@ const FeaturesSection: React.FC = () => {
 
       <div className="container mx-auto px-6 relative z-30">
         <div className="text-center mb-12 md:mb-20 features-title">
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-tight flex justify-center items-baseline flex-wrap gap-x-4">
+          <h2 className="text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[0.9] flex flex-col items-center">
             <span className="font-title font-bold text-gold/90">Nossos</span>
-            <span className="font-serif font-light italic text-gold">diferenciais</span>
+            <span className="font-serif font-light italic text-gold lowercase">diferenciais</span>
           </h2>
           <div className="w-16 h-px bg-gold/30 mx-auto mt-6 md:mt-8"></div>
         </div>
@@ -151,12 +151,12 @@ const FeaturesSection: React.FC = () => {
           
           <div className="w-full lg:w-1/3 flex flex-col gap-10 md:gap-16 text-center lg:text-right order-2 lg:order-1 relative z-30">
             <div className="group feature-item">
-              <h3 className="font-title-standard text-2xl md:text-4xl text-gold mb-3 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Receita</h3>
-              <p className="font-body-standard text-cream/50 text-base md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-right [hyphens:auto]">Preservamos o sabor autêntico das receitas tradicionais passadas por gerações em nossa família.</p>
+              <h3 className="font-title-standard text-2xl md:text-3xl text-gold mb-3 md:mb-6 tracking-normal uppercase transition-colors group-hover:text-cream">Receita</h3>
+              <p className="font-body-standard text-cream/50 text-base md:text-lg font-light leading-relaxed w-full text-justify md:text-center lg:text-right [hyphens:auto]">Preservamos o sabor autêntico das receitas tradicionais passadas por gerações em nossa família.</p>
             </div>
             <div className="group feature-item">
-              <h3 className="font-title-standard text-2xl md:text-4xl text-gold mb-3 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Produção</h3>
-              <p className="font-body-standard text-cream/50 text-base md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-right [hyphens:auto]">Cada detalhe é moldado à mão com paciência e perfeccionismo para garantir a perfeição absoluta.</p>
+              <h3 className="font-title-standard text-2xl md:text-3xl text-gold mb-3 md:mb-6 tracking-normal uppercase transition-colors group-hover:text-cream">Produção</h3>
+              <p className="font-body-standard text-cream/50 text-base md:text-lg font-light leading-relaxed w-full text-justify md:text-center lg:text-right [hyphens:auto]">Cada detalhe é moldado à mão com paciência e perfeccionismo para garantir a perfeição absoluta.</p>
             </div>
           </div>
 
@@ -173,18 +173,17 @@ const FeaturesSection: React.FC = () => {
 
           <div className="w-full lg:w-1/3 flex flex-col gap-10 md:gap-16 text-center lg:text-left order-3 relative z-30">
             <div className="group feature-item">
-              <h3 className="font-title-standard text-2xl md:text-4xl text-gold mb-3 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Ingredientes</h3>
-              <p className="font-body-standard text-cream/50 text-base md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-left [hyphens:auto]">Buscamos o equilíbrio perfeito entre o cacau premium para entregar o melhor brigadeiro.</p>
+              <h3 className="font-title-standard text-2xl md:text-3xl text-gold mb-3 md:mb-6 tracking-normal uppercase transition-colors group-hover:text-cream">Ingredientes</h3>
+              <p className="font-body-standard text-cream/50 text-base md:text-lg font-light leading-relaxed w-full text-justify md:text-center lg:text-left [hyphens:auto]">Buscamos o equilíbrio perfeito entre o cacau premium para entregar o melhor brigadeiro.</p>
             </div>
             <div className="group feature-item">
-              <h3 className="font-title-standard text-2xl md:text-4xl text-gold mb-3 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Atendimento</h3>
-              <p className="font-body-standard text-cream/50 text-base md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-left [hyphens:auto]">Sua experiência é tratada com o cuidado e a exclusividade que você merece em cada detalhe.</p>
+              <h3 className="font-title-standard text-2xl md:text-3xl text-gold mb-3 md:mb-6 tracking-normal uppercase transition-colors group-hover:text-cream">Atendimento</h3>
+              <p className="font-body-standard text-cream/50 text-base md:text-lg font-light leading-relaxed w-full text-justify md:text-center lg:text-left [hyphens:auto]">Sua experiência é tratada com o cuidado e a exclusividade que você merece em cada detalhe.</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* ONDA INFERIOR COM SOBREPOSIÇÃO TÉCNICA (Overlap) */}
       <div className="absolute top-[100%] left-0 w-full overflow-hidden leading-none z-50 -mt-[1px]">
         <svg 
           viewBox="0 0 1200 120" 

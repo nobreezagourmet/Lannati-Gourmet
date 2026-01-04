@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-0 mb-20 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20 items-start">
           
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
             <div className="group cursor-default">
@@ -44,7 +44,8 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:pl-12">
+          {/* Coluna 'Conheça' visível apenas no desktop conforme solicitado */}
+          <div className="hidden lg:flex flex-col items-center lg:items-start text-center lg:text-left lg:pl-12">
             <h5 className="font-title-standard text-gold text-lg uppercase tracking-widest mb-8 border-b border-gold/10 pb-2 w-full max-w-[120px] lg:max-w-none">Conheça</h5>
             <ul className="space-y-4 font-body-standard text-cream/50 text-sm md:text-base cursor-default select-none pointer-events-none">
               <li>Nossos Diferenciais</li>
@@ -65,7 +66,7 @@ const Footer: React.FC = () => {
                 <Mail size={16} className="text-gold/50 flex-shrink-0" />
                 <span className="lowercase">lannatigourmet@outlook.com</span>
               </div>
-              <div className="flex items-start justify-center lg:justify-start gap-3 max-w-[220px]">
+              <div className="flex items-start justify-center lg:justify-start gap-3 max-w-[280px]">
                 <MapPin size={16} className="text-gold/50 mt-1 flex-shrink-0" />
                 <span className="leading-relaxed">R. Guilherme Mainard, 59 - Jardim Ana Maria ( São Paulo - SP )</span>
               </div>
@@ -74,7 +75,7 @@ const Footer: React.FC = () => {
 
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:pl-12">
             <h5 className="font-title-standard text-gold text-lg uppercase tracking-widest mb-8 border-b border-gold/10 pb-2 w-full max-w-[120px] lg:max-w-none">Segurança</h5>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-4">
               <div className="w-40 h-16 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center group hover:bg-white/10 transition-all duration-300 cursor-default px-4 shadow-lg shadow-black/5">
                  <div className="flex items-center gap-3 text-gold/40 group-hover:text-gold/60">
                    <ShieldCheck size={28} />
