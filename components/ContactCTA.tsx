@@ -7,7 +7,7 @@ const ContactCTA: React.FC = () => {
         <div className="max-w-6xl mx-auto flex flex-col items-center">
           <h2 className="text-5xl sm:text-6xl lg:text-7xl text-bordeaux tracking-tight leading-[1.1] mb-20 max-w-5xl mx-auto flex flex-col items-center">
             <span className="flex justify-center items-baseline flex-wrap gap-x-4">
-              <span className="font-serif font-light italic">Adoce</span>
+              <span className="font-serif font-light italic">Celebre</span>
               <span className="font-title font-bold">seus momentos especiais</span>
             </span>
             <span className="flex justify-center items-baseline flex-wrap gap-x-4">
