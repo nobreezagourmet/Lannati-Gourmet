@@ -59,15 +59,15 @@ const Footer: React.FC = () => {
             <div className="space-y-5 text-cream/60 font-body-standard text-sm md:text-base">
               <div className="flex items-center justify-center lg:justify-start gap-3">
                 <Phone size={16} className="text-gold/50 flex-shrink-0" />
-                <span>(11) 99999-9999</span>
+                <span>(11) 96897-8684</span>
               </div>
               <div className="flex items-center justify-center lg:justify-start gap-3">
                 <Mail size={16} className="text-gold/50 flex-shrink-0" />
-                <span className="lowercase">contato@lannati.com.br</span>
+                <span className="lowercase">lannatigourmet@outlook.com</span>
               </div>
               <div className="flex items-start justify-center lg:justify-start gap-3 max-w-[220px]">
                 <MapPin size={16} className="text-gold/50 mt-1 flex-shrink-0" />
-                <span className="leading-relaxed">Rua das Delícias, 123 - Jardins, São Paulo/SP</span>
+                <span className="leading-relaxed">R. Guilherme Mainard, 59 - Jardim Ana Maria ( São Paulo - SP )</span>
               </div>
             </div>
           </div>
