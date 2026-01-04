@@ -174,7 +174,7 @@ const FeaturesSection: React.FC = () => {
           <div className="w-full lg:w-1/3 flex flex-col gap-10 md:gap-16 text-center lg:text-left order-3 relative z-30">
             <div className="group feature-item">
               <h3 className="font-title-standard text-2xl md:text-4xl text-gold mb-3 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Ingredientes</h3>
-              <p className="font-body-standard text-cream/50 text-base md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-left [hyphens:auto]">Selecionamos apenas as melhores matérias-primas globais para elevar o padrão de cada criação.</p>
+              <p className="font-body-standard text-cream/50 text-base md:text-2xl font-light leading-relaxed w-full text-justify md:text-center lg:text-left [hyphens:auto]">Buscamos o equilíbrio perfeito entre o cacau premium para entregar o melhor brigadeiro.</p>
             </div>
             <div className="group feature-item">
               <h3 className="font-title-standard text-2xl md:text-4xl text-gold mb-3 md:mb-6 tracking-normal lowercase first-letter:uppercase transition-colors group-hover:text-cream">Atendimento</h3>
