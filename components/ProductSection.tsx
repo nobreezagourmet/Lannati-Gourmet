@@ -4,13 +4,13 @@ const products = [
   { 
     id: 1, 
     title: "Tradicional", 
-    description: "Nosso clássico absoluto. Elaborado com o mais puro chocolate belga 50% cacau e finalizado com granulado gourmet que derrete delicadamente na boca a cada mordida.", 
+    description: "O sabor que você ama, como nunca viu. Feito com cacau 50% e granulado, ele une a doçura da infância com a sofisticação que seu paladar exige hoje. Uma perfeição.", 
     image: "https://i.postimg.cc/xqrdtzL0/Tradicional.png" 
   },
   { 
     id: 2, 
     title: "Gourmet", 
-    description: "O equilíbrio sublime entre a suavidade do leite Ninho premium e um recheio generoso da legítima Nutella, resultando em uma cremosidade incomparável.", 
+    description: "Nosso clássico absoluto. Elaborado com o mais puro chocolate belga 50% cacau e finalizado com granulado gourmet que derrete delicadamente na boca a cada mordida.", 
     image: "https://i.postimg.cc/66MgnKt4/ferrero-site.png" 
   },
   { 
