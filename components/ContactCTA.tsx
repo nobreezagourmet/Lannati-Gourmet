@@ -20,7 +20,7 @@ const ContactCTA: React.FC = () => {
             href="https://wa.me/message/4UTFA7QUPX6PE1"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-luxury bg-bordeaux text-gold py-8 px-10 md:py-10 md:px-20 text-xl md:text-2xl hover:scale-105 transition-all duration-700 shadow-2xl shadow-bordeaux/20"
+            className="btn-luxury bg-bordeaux text-gold py-5 px-8 md:py-6 md:px-12 text-base md:text-lg hover:scale-105 transition-all duration-700 shadow-2xl shadow-bordeaux/20"
           >
             <span className="md:hidden">COMPRAR AGORA</span>
             <span className="hidden md:inline">ENCOMENDAR PELO WHATSAPP AGORA</span>

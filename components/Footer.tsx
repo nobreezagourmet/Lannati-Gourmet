@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                  className="w-32 h-auto"
                />
             </div>
-            <p className="font-body-standard text-cream/40 text-[10px] tracking-[0.3em] uppercase font-bold">Amor em cada detalhe</p>
+            <p className="font-body-standard text-cream/40 text-[10px] tracking-[0.3em] uppercase font-bold">Redes Sociais:</p>
             <div className="flex gap-4">
               <a href="https://www.instagram.com/lannattigourmet/" target="_blank" rel="noopener noreferrer" className="p-2.5 bg-gold/5 text-gold/60 rounded-full hover:bg-gold hover:text-bordeaux hover:scale-110 transition-all duration-300">
                 <Instagram size={18} />
